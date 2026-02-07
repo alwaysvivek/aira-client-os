@@ -42,12 +42,10 @@ This is a Turborepo monorepo with the following structure:
 pnpm install
 
 # Configure API (see API_CONFIGURATION.md for details)
-cd apps/aira-web
-cp .env.example .env.local
-# Edit .env.local to set NEXT_PUBLIC_API_BASE_URL=https://dev.api.airaai.in
+cp apps/aira-web/.env.example apps/aira-web/.env.local
+# Edit apps/aira-web/.env.local to set NEXT_PUBLIC_API_BASE_URL=https://dev.api.airaai.in
 
 # Start the web app in development
-cd ../..
 pnpm dev --filter=aira-web
 
 
