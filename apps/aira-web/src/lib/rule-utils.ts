@@ -1,0 +1,80 @@
+import type { Rule } from '@repo/core';
+
+/**
+ * Derives the service badge text for a rule.
+ * Currently only WhatsApp is supported based on w_id field.
+ */
+export function deriveServiceBadge(_rule: Rule): string {
+  // All rules with w_id are WhatsApp rules per the API spec
+  return 'WhatsApp';
+}
+
+/**
+ * Derives the chat count from w_id array.
+ * Returns a formatted string like "12 chats" or "1 chat"
+ */
+export function deriveChatCount(rule: Rule): string {
+  const count = rule.w_id?.length ?? 0;
+  return count === 1 ? '1 chat' : `${count} chats`;
+}
+
+/**
+ * Derives a human-readable status description for a rule.
+ * Based on status, w_id, and trigger_time fields from the API.
+ */
+export function deriveRuleStatus(rule: Rule): string {
+  const chatCount = rule.w_id?.length ?? 0;
+  
+  if (rule.status === 'inactive') {
+    return 'Paused';
+  }
+  
+  // Active rule
+  if (chatCount === 0) {
+    return 'Active (no chats)';
+  }
+  
+  return `Watching ${chatCount === 1 ? '1 chat' : `${chatCount} chats`}`;
+}
+
+/**
+ * Formats a trigger_time string to a human-readable format.
+ * Handles various formats defensively and returns null if invalid.
+ */
+export function formatTriggerTime(triggerTime: string | null | undefined): string | null {
+  if (!triggerTime) return null;
+  
+  try {
+    // Try parsing as ISO 8601
+    const date = new Date(triggerTime);
+    if (isNaN(date.getTime())) return null;
+    
+    // Format as "HH:MM AM/PM"
+    return date.toLocaleTimeString('en-US', {
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true,
+    });
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Derives the complete toggle status text including schedule if available.
+ * Used for the informational subtext under the rule toggle.
+ */
+export function deriveToggleStatusText(rule: Rule): string {
+  if (rule.status === 'inactive') {
+    return 'Status: Paused';
+  }
+  
+  const statusText = deriveRuleStatus(rule);
+  const formattedTime = formatTriggerTime(rule.trigger_time);
+  
+  if (formattedTime) {
+    return `Status: ${statusText} • Next run: ${formattedTime}`;
+  }
+  
+  return `Status: ${statusText}`;
+}
