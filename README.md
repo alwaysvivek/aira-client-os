@@ -26,6 +26,8 @@ This is a Turborepo monorepo with the following structure:
 - **Zod** for schema validation
 - **Axios** for HTTP
 
+**📖 Need help configuring the API?** See [API_CONFIGURATION.md](./API_CONFIGURATION.md) for detailed setup instructions.
+
 ## Getting Started
 
 ### Prerequisites
@@ -39,8 +41,13 @@ This is a Turborepo monorepo with the following structure:
 # Install dependencies
 pnpm install
 
+# Configure API (see API_CONFIGURATION.md for details)
+cd apps/aira-web
+cp .env.example .env.local
+# Edit .env.local to set NEXT_PUBLIC_API_BASE_URL=https://dev.api.airaai.in
 
 # Start the web app in development
+cd ../..
 pnpm dev --filter=aira-web
 
 
