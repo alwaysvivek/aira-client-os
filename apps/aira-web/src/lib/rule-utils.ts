@@ -2,7 +2,9 @@ import type { Rule } from '@repo/core';
 
 /**
  * Derives the service badge text for a rule.
- * Currently only WhatsApp is supported based on w_id field.
+ * Currently all rules are WhatsApp rules (identified by the presence of w_id field).
+ * The parameter is prefixed with underscore as it's not needed for current logic,
+ * but kept for future extensibility when other service types are supported.
  */
 export function deriveServiceBadge(_rule: Rule): string {
   // All rules with w_id are WhatsApp rules per the API spec
@@ -63,6 +65,10 @@ export function formatTriggerTime(triggerTime: string | null | undefined): strin
 /**
  * Derives the complete toggle status text including schedule if available.
  * Used for the informational subtext under the rule toggle.
+ * 
+ * Note: trigger_time represents when a scheduled rule will next execute.
+ * For recurring rules (with interval set), this shows the next scheduled run.
+ * The label "Next run" is accurate for both one-time and recurring schedules.
  */
 export function deriveToggleStatusText(rule: Rule): string {
   if (rule.status === 'inactive') {
