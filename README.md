@@ -12,10 +12,15 @@ The biggest hurdle for AI tools is the **Trust Gap**. Users give an AI control o
 
 ## ✨ Changes & Improvements
 
-### 1. Unified "Actions" Center
-- **The Solve**: I consolidated "Quick Actions" and "Suggestions" into a single, high-leverage **Actions** tab. This creates a unified entry point for all manual and AI-suggested interventions, reducing cognitive friction on the dashboard.
+### 1. Unified "Actions" Hub & Guided Onboarding
+- **The Solve**: I consolidated "Quick Actions" and "Suggestions" into a single, high-leverage **Actions** tab. This creates a unified entry point for all manual and AI-suggested interventions.
+- **Onboarding Boost**: Replaced empty states with a **Template Injection System**. New users are greeted with actionable rule templates that pre-populate the creation flow, eliminating "blank page" paralysis.
 
-![Screenshot: Unified Actions Center](./demos/actions_center.png)
+````carousel
+![Screenshot: Unified Actions Hub](./demos/actions_center.png)
+<!-- slide -->
+![Screenshot: Guided Onboarding](./demos/onboarding_templates.png)
+````
 
 ### 2. Rule "Pulse" & Clickable Observability
 - **The Solve**: Rules now feature **Health Badges** and a live **Pulse Indicator** that derive liveness from metadata. The status text is now **clickable**, taking users directly to the schedule settings for immediate control.
@@ -26,11 +31,6 @@ The biggest hurdle for AI tools is the **Trust Gap**. Users give an AI control o
 - **The Solve**: Surfaced connector health directly in the workspace. This prevents "Silent Failures" (e.g., an expired WhatsApp/WAHA session) and builds immediate confidence in the system's status.
 
 ![Screenshot: Service Connectivity Heartbeat](./demos/connectivity_heartbeat.png)
-
-### 4. Guided Onboarding (Template Injection)
-- **The Solve**: Replaced the "empty suggestions" screen with a **Template Injection System**. New users are greeted with actionable rule templates that pre-populate the creation flow, eliminating "blank page" paralysis.
-
-![Screenshot: Guided Onboarding](./demos/onboarding_templates.png)
 
 ---
 
