@@ -42,13 +42,4 @@ The biggest hurdle for AI tools is the **Trust Gap**. Users give an AI control o
 
 ---
 
-## 🚀 Future Roadmap: Scaling Reliability
-
-To take the "Reliability Engine" even further, I would implement:
-
-1. **Dry Run Mode**: A "Sim-Test" feature allowing users to preview rule behavior against their last 50 messages before actual activation.
-2. **Instruction Linting**: Client-side validation to detect and prevent conflicting or non-deterministic AI logic loops.
-3. **Granular Sync Monitoring**: SSE-driven progress bars (replacing standard spinners) to show real-time indexing status for WhatsApp and Gmail chats.
-
----
-**Vivek Dagar** | [GitHub](https://github.com/alwaysvivek) | [LinkedIn](https://linkedin.com/in/vivekdagar)
+**Vivek Dagar**
