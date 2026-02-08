@@ -25,7 +25,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { Button } from '@/components/ui/button';
 import { ROUTES } from '@/lib/constants';
 import { RuleItem } from '@/components/workspace';
-import { deriveChatCount } from '@/lib/rule-utils';
+import { deriveChatCount, deriveToggleStatusText } from '@/lib/rule-utils';
 import { Plus } from 'lucide-react';
 
 function formatRelativeTime(dateString: string): string {
@@ -331,7 +331,9 @@ export default function HubPage() {
                         });
                       }}
                       onClick={() => router.push(ROUTES.RULES_EDIT(rule.rule_id))}
+                      onStatusClick={() => router.push(ROUTES.RULES_EDIT(rule.rule_id))}
                       chatCount={deriveChatCount(rule)}
+                      statusText={deriveToggleStatusText(rule)}
                       lastRun={rule.last_triggered_at ? formatRelativeTime(rule.last_triggered_at) : undefined}
                     />
                   </motion.div>
