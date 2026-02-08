@@ -15,16 +15,22 @@ The biggest hurdle for AI tools is the **Trust Gap**. Users give an AI control o
 ### 1. Unified "Actions" Center
 - **The Solve**: I consolidated "Quick Actions" and "Suggestions" into a single, high-leverage **Actions** tab. This creates a unified entry point for all manual and AI-suggested interventions, reducing cognitive friction on the dashboard.
 
-![Screenshot: Unified Actions Center](file:///placeholder_actions.png)
+![Screenshot: Unified Actions Center](./demos/image%20copy.png)
 
 ### 2. Rule "Pulse" & Health Badges
 - **The Solve**: Rules are no longer static. I implemented inline **Health Badges** that derive liveness from metadata. Users can now see if a rule is **Live**, **Standby**, or **Paused** at a glance.
 
+![Screenshot: Rule Pulse & Health Badges](./demos/image%20copy%203.png)
+
 ### 3. Service Connectivity Heartbeat
 - **The Solve**: Surfaced connector health directly in the workspace. This prevents "Silent Failures" (e.g., an expired WhatsApp/WAHA session) and builds immediate confidence in the system's status.
 
+![Screenshot: Service Connectivity Heartbeat](./demos/image.png)
+
 ### 4. Guided Onboarding (Template Injection)
 - **The Solve**: Replaced the "empty suggestions" screen with a **Template Injection System**. New users are greeted with actionable rule templates that pre-populate the creation flow, eliminating "blank page" paralysis.
+
+![Screenshot: Guided Onboarding](./demos/image%20copy%202.png)
 
 ---
 
