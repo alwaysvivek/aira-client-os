@@ -24,6 +24,7 @@ interface RuleItemProps {
   className?: string;
   chatCount?: string;
   statusText?: string;
+  lastRun?: string;
 }
 
 const connectorIcons = {
@@ -51,6 +52,7 @@ export function RuleItem({
   className,
   chatCount,
   statusText,
+  lastRun,
 }: RuleItemProps) {
   const Icon = connectorIcons[connectorType];
 
@@ -81,11 +83,18 @@ export function RuleItem({
           <div className="flex-1 cursor-pointer" onClick={onClick}>
             <div className="flex items-center gap-2 mb-1">
               <h4 className="font-medium text-foreground">{title}</h4>
-              {chatCount && (
-                <span className="inline-flex items-center rounded-md bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground">
-                  {chatCount}
-                </span>
-              )}
+              <div className="flex items-center gap-1.5">
+                {chatCount && (
+                  <span className="inline-flex items-center rounded-md bg-muted px-2 py-0.5 text-[10px] font-medium text-muted-foreground uppercase tracking-wider">
+                    {chatCount}
+                  </span>
+                )}
+                {lastRun && (
+                  <span className="inline-flex items-center rounded-md bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary uppercase tracking-wider">
+                    Last Run: {lastRun}
+                  </span>
+                )}
+              </div>
             </div>
             <p className="text-sm text-muted-foreground line-clamp-1">
               {description}
